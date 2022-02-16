@@ -1,0 +1,23 @@
+.nav{
+    grid-area: n;
+    background-color: grey;
+    
+  }
+
+  .list{
+    color: white;
+    list-style: none;
+   
+  }
+
+.listItem a{
+  text-decoration: none;
+  color: green;
+}
+
+ 
+  
+ 
+  .listItem a.activeLinc {
+    color: white;
+  }
