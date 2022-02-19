@@ -12,6 +12,7 @@ import Music from "./Components/Music/Music";
 import Setings from "./Components/Setings/Setings";
 import Home from "./Components/Home/Home";
 import SideBar from "./Components/Navigation/SideBar/sideBar";
+import DialogsContainer from "./Components/Dialogs/Dialogsconteiner";
 
 const App = (props) => {
   return (
@@ -26,21 +27,15 @@ const App = (props) => {
           <Route
             path="/dialogs"
             element={
-              <Dialogs
-                mesages={props.dialogs.mesages}
-                dialogs={props.dialogs.dialogs}
-                newPostMesage={props.dialogs.newPostMesage}
-                dispatch={props.dispatch}
-              />
+              <DialogsContainer/>
             }
           />
           <Route
             path="/profile"
             element={
               <Profile
-                posts={props.mesages.posts}
-                newPostText={props.mesages.newPostText}
-                dispatch={props.dispatch}
+           
+                
               />
             }
           />

@@ -5,18 +5,23 @@ import "./index.css";
 import App from "./App";
 
 import store from "./redux/redux-store";
+import  { Provider } from "./StoreContext";
 
 let renderEntaurTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App
-          mesages={state.mesagesPage}
-          dialogs={state.profilePage}
-          sidebar={state.sideBar}
-          newProfileMesage={state.profilePage}
-          dispatch={store.dispatch.bind(store)}
+      <Provider store={store}>
+      <App
+          // mesages={state.mesagesPage}
+          // dialogs={state.profilePage}
+          // sidebar={state.sideBar}
+          // newProfileMesage={state.profilePage}
+          // dispatch={store.dispatch.bind(store)}
+          // store={store}
         />
+      </Provider>
+        
       </BrowserRouter>
       ,
     </React.StrictMode>,

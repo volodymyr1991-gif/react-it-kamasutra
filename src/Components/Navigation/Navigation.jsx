@@ -39,7 +39,7 @@ const Navigation = ({sidebar}) => {
           </NavLink>
         </li>
       </ul>
-      <SideBar sidebar={sidebar}/>
+      <SideBar />
     </nav>
   );
 };

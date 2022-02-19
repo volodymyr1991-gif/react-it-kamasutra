@@ -2,18 +2,20 @@ import React from "react";
 import DialogItem from "./DialogItem/DialogItme";
 import s from "./Dialogs.module.css";
 import Mesages from "./Messages/Mwsages";
-import { addMesageActionCreator, updateNewMesageActionCreator } from "../../redux/dialogs-reducer";
+
 
 const Dialogs = (props) => {
   let newMessages = React.createRef();
 
   let addMessages = () => {
- props.dispatch(addMesageActionCreator())
+//  props.dispatch(addMesageActionCreator())
+props.onAddMesage()
   };
 
   let onChangeMesage = () => {
     let mesage = newMessages.current.value;
-  props.dispatch(  updateNewMesageActionCreator(mesage));
+    props.updateChangeTextMesages(mesage)
+  // props.dispatch(  updateNewMesageActionCreator(mesage));
   };
 
   return (
@@ -28,7 +30,7 @@ const Dialogs = (props) => {
        <textarea
           ref={newMessages}
           onChange={onChangeMesage}
-          value={props.newPostMesage}
+          value={props.updateNewTextMesages}
         />
        </div>
        <div>

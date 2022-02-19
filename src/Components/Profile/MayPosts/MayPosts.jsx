@@ -1,21 +1,20 @@
 import React, { createRef } from "react";
 import s from "./MayPosts.module.css";
 import Post from "./Post/Post";
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from "../../../redux/profile-reducer";
+
 
 const MayPosts = (props) => {
   let newPostsText = React.createRef();
 
   let addPosts = () => {
-    props.dispatch(addPostActionCreator());
+    // props.dispatch(addPostActionCreator());
+    props.onAddPosts()
   };
 
   let onPostChange = () => {
     let text = newPostsText.current.value;
-    props.dispatch(updateNewPostTextActionCreator(text));
+    // props.dispatch(updateNewPostTextActionCreator(text));
+    props.updateNewPostText(text)
   };
 
   return (
