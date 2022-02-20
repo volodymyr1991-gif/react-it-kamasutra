@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SideBar from "./SideBar/sideBar";
 import s from "./Navigation.module.css";
+import SideBarContainer from "./SideBar/sideBarContainer";
 
 const Navigation = ({sidebar}) => {
   return (
@@ -39,7 +39,7 @@ const Navigation = ({sidebar}) => {
           </NavLink>
         </li>
       </ul>
-      <SideBar />
+      <SideBarContainer />
     </nav>
   );
 };

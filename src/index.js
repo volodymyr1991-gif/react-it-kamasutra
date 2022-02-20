@@ -5,9 +5,9 @@ import "./index.css";
 import App from "./App";
 
 import store from "./redux/redux-store";
-import  { Provider } from "./StoreContext";
+import  { Provider } from "react-redux";
 
-let renderEntaurTree = (state) => {
+
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
@@ -28,14 +28,14 @@ let renderEntaurTree = (state) => {
 
     document.getElementById("root")
   );
-};
 
-renderEntaurTree(store.getState());
 
-store.subscribe(() => {
-  let state = store.getState();
-  renderEntaurTree(state);
-});
+
+
+// store.subscribe(() => {
+//   let state = store.getState();
+//   renderEntaurTree(state);
+// });
 
 // updateNewPostText={store.updateNewPostText.bind(store)}
 // addMesage={store.addMesage.bind(store)}

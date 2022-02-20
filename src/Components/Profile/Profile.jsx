@@ -7,7 +7,7 @@ import MayPostsContainer from "./MayPosts/MayPostsContainer";
 
 
 const Profile = (props) => {
-  console.log(props.posts);
+
     return(
         <div className={s.profile}>
        <ProfileInfo/>

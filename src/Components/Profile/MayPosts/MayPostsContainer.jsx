@@ -4,35 +4,58 @@ import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
 } from "../../../redux/profile-reducer";
-import StoreContext from "../../../StoreContext";
 import MayPosts from "./MayPosts";
 
-const MayPostsContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
+import {connect} from 'react-redux'
 
-        let onAddPosts = () => {
-          store.dispatch(addPostActionCreator());
-        };
+// const MayPostsContainer = () => {
+//   return (
+//     <StoreContext.Consumer>
+//       {(store) => {
+//         let state = store.getState();
 
-        let onPostChange = (text) => {
-          let action = updateNewPostTextActionCreator(text);
-          store.dispatch(action);
-        };
+//         let onAddPosts = () => {
+//           store.dispatch(addPostActionCreator());
+//         };
 
-        return (
-          <MayPosts
-            onAddPosts={onAddPosts}
-            updateNewPostText={onPostChange}
-            newPostText={state.mesagesPage.newPostText}
-            posts={state.mesagesPage.posts}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
+//         let onPostChange = (text) => {
+//           let action = updateNewPostTextActionCreator(text);
+//           store.dispatch(action);
+//         };
+
+//         return (
+//           <MayPosts
+//             onAddPosts={onAddPosts}
+//             updateNewPostText={onPostChange}
+//             newPostText={state.mesagesPage.newPostText}
+//             posts={state.mesagesPage.posts}
+//           />
+//         );
+//       }}
+//     </StoreContext.Consumer>
+//   );
+// };
+
+let mapStateToProps = (state) =>{
+  return{
+    newPostText: state.mesagesPage.newPostText,
+    posts: state.mesagesPage.posts
+  }
 };
+
+let mapDispatchToProps= (dispatch)=>{
+  return{
+    onAddPosts: ()=>{
+      dispatch(addPostActionCreator())
+    },
+    updateNewPostText: (text)=>{
+      let action = updateNewPostTextActionCreator(text);
+     dispatch(action);
+    }
+
+  }
+}
+
+const MayPostsContainer = connect(mapStateToProps,mapDispatchToProps)(MayPosts)
 
 export default MayPostsContainer;
